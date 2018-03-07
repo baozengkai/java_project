@@ -1,5 +1,9 @@
 package com.baozengkai;
 
+import java.nio.file.Paths;
+import java.util.Arrays;
+import java.util.Scanner;
+
 /*
 1.java的类命名是驼峰命名法，一般是大写字母开头，如果有多个单词，那么就是多个字母的单词开头大写。
 2.在java中，boolean类型有true和false，注意一点，数值型和boolean型不能相互转换。
@@ -15,6 +19,20 @@ package com.baozengkai;
     检测字符串是否相等: equals()方法，一定不能用==来判断(python可以)
     判断一个字符串不是null也不是空串
     构建高效率字符串
+8.读取输入、格式化输出
+    读取输入
+    格式化输出
+    文件输入输出(待定学习)
+9.流程控制
+    switch控制
+10.数组：java中的数组跟C++的不同，java中的数组本身都存放在堆中，数组名这个引用存放在栈上。而C++是可以存放在堆，也可以存放在栈。
+    声明创建数组第一种形式
+    声明初始化数组第二种形式
+    初始值验证：数字数组，初始化为0 boolean数组初始化为false 对象数组初始化为null
+    for each遍历循环
+    数组拷贝
+    数组排序
+    多维数组(待定学习)
  */
 public class Basic {
 
@@ -27,7 +45,7 @@ public class Basic {
 //        bool = 1;
 
         // 3. 指示一个常量，常量在被赋值一次之后，之后不能改变
-        final int a = 1;
+//        final int a = 1;
 //        a = 2;
 
         //5.数值类型转换 byte-->short
@@ -67,11 +85,81 @@ public class Basic {
 //            System.out.println("ok");
 
         //7.5 构建字符串
-        StringBuilder builder = new StringBuilder();
-        builder.append("xiao");
-        builder.append("bao");
-        String completeString = builder.toString();
+//        StringBuilder builder = new StringBuilder();
+//        builder.append("xiao");
+//        builder.append("bao");
+//        String completeString = builder.toString();
 
+        //8.读取输入、格式化输出
+        //8.1循环接收输入
+//        Scanner in = new Scanner(System.in);
+//        while (true)
+//        {
+//            String line = in.nextLine();
+//            if (line.equals(".")){
+//                break;
+//            }
+//            System.out.println(line);
+//        }
+        //8.2 格式化输出
+//        String name = "xiaobao";
+//        System.out.println(String.format("My name is: %s",name));
+
+        //8.3 文件的输入和输出(暂时不学)
+
+        //9.流程控制
+        //9.1 Switch
+//        Scanner in =new Scanner(System.in);
+//        int choice = in.nextInt();
+//        switch (choice)
+//        {
+//            case 1:
+//                //
+//            case 2:
+//                //
+//            default:
+//                break;
+//        }
+        //10.数组
+        //10.1 声明及创建数组第一种形式
+//        int[] a =new int[5];
+//        for(int i=0;i<5;i++)
+//        {
+//            System.out.println(a[i]);
+//        }
+        //10.2 声明及初始化数组第二种形式
+//        int [] a = {1,2,3};
+//        System.out.println(a[0]);
+
+        //10.3 初始化数组验证
+//        String[] names = new String[5];
+//        for(int i=0;i<5;i++)
+//        {
+//            System.out.println(names[i]);
+//        }
+
+        //10.4 for each遍历循环
+//        int[] a = new int[5];
+//        for(int i:a)
+//        {
+//            System.out.println(i);
+//        }
+        //10.5 数组拷贝
+//        int[] a = {1,2,3};
+//        int[] b = a;
+//        System.out.println(a.hashCode());
+//        System.out.println(b.hashCode());
+//
+//        int[] c = Arrays.copyOf(a,a.length);
+//        System.out.println(c.hashCode());
+
+        //10.6 数组排序
+        int[] a = {4,1,2,3};
+        Arrays.sort(a);
+        for(int i=0;i<4;i++)
+        {
+            System.out.println(a[i]);
+        }
         //0.测试
 //        System.out.println("hello xiaobao"+a);
 //        System.out.println("hello xiaobao"+b);
@@ -85,6 +173,6 @@ public class Basic {
 //
 //        System.out.println(s3==s4);
 //        System.out.println(s3.equals(s4));
-        System.out.println(completeString);
+//        System.out.println(completeString);
     }
 }
