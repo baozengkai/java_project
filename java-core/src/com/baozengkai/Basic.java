@@ -33,11 +33,23 @@ import java.util.Scanner;
     数组拷贝
     数组排序
     多维数组(待定学习)
+
+11.可变参数
  */
 public class Basic {
 
     //4.类常量，用于在类中的多个方法中都使用
     public static final int b = 2;
+
+    //11.可变参数
+    public void args_function(int... args)
+    {
+        for(int i:args)
+        {
+            System.out.println(i);
+        }
+    }
+
     public static void main(String[] args){
 
         // 2. boolean和数值型不能相互转换
@@ -154,12 +166,16 @@ public class Basic {
 //        System.out.println(c.hashCode());
 
         //10.6 数组排序
-        int[] a = {4,1,2,3};
-        Arrays.sort(a);
-        for(int i=0;i<4;i++)
-        {
-            System.out.println(a[i]);
-        }
+//        int[] a = {4,1,2,3};
+//        Arrays.sort(a);
+//        for(int i=0;i<4;i++)
+//        {
+//            System.out.println(a[i]);
+//        }
+
+        //11.可变参数
+        Basic b = new Basic();
+        b.args_function(1,2,3);
         //0.测试
 //        System.out.println("hello xiaobao"+a);
 //        System.out.println("hello xiaobao"+b);
