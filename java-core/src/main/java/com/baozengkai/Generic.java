@@ -151,21 +151,21 @@ import java.util.List;
 //}
 
 //5.1 静态方法与泛型
-//public class Generic<T>
-//{
-//    //5.1.1 静态实例和静态方法尝试使用类上的泛型变量
-////    public static T value;
-////    public static T static_method(T value)
-////    {
-////        return value;
-////    }
-//
-//    //5.1.2 如果静态方法要使用泛型变量，需要将自身变成静态泛型方法 而静态实例禁止使用
+public class Generic<T>
+{
+    //5.1.1 静态实例和静态方法尝试使用类上的泛型变量
 //    public static T value;
-//    public static<T> T static_method(T value)
+//    public static T static_method(T value)
 //    {
 //        return value;
 //    }
-//}
+
+    //5.1.2 如果静态方法要使用泛型变量，需要将自身变成静态泛型方法 而静态实例禁止使用
+    public static T value;
+    public static<T> T static_method(T value)
+    {
+        return value;
+    }
+}
 
 //6. 泛型通配符
