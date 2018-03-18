@@ -161,7 +161,7 @@ public class Generic<T>
 //    }
 
     //5.1.2 如果静态方法要使用泛型变量，需要将自身变成静态泛型方法 而静态实例禁止使用
-    public static T value;
+//    public static T value;
     public static<T> T static_method(T value)
     {
         return value;
