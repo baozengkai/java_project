@@ -1,6 +1,9 @@
 package com.baozengkai;
 
+import org.json.JSONObject;
+
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -33,25 +36,37 @@ import java.util.Scanner;
     数组拷贝
     数组排序
     多维数组(待定学习)
-
 11.可变参数
+12.静态代码块
+    static{
+    }
+    在类加载的时候就会被执行，仅会执行一次
+
  */
 public class Basic {
 
     //4.类常量，用于在类中的多个方法中都使用
-    public static final int b = 2;
+//    public static final int b = 2;
 
     //11.可变参数
-    public void args_function(int... args)
-    {
-        for(int i:args)
-        {
-            System.out.println(i);
-        }
+//    public void args_function(int... args)
+//    {
+//        for(int i:args)
+//        {
+//            System.out.println(i);
+//        }
+//    }
+
+    //12. 静态代码块
+    static{
+        System.out.println("我是静态代码块代码");
     }
 
     public static void main(String[] args){
 
+//        ArrayList as = new ArrayList();
+//        as.add("{操作=10025}");
+//        System.out.println(JSONObject.valueToString(as.get(0)));
         // 2. boolean和数值型不能相互转换
 //        boolean bool = true;
 //        bool = 1;
@@ -174,8 +189,8 @@ public class Basic {
 //        }
 
         //11.可变参数
-        Basic b = new Basic();
-        b.args_function(1,2,3);
+//        Basic b = new Basic();
+//        b.args_function(1,2,3);
         //0.测试
 //        System.out.println("hello xiaobao"+a);
 //        System.out.println("hello xiaobao"+b);
