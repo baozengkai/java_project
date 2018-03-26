@@ -45,6 +45,7 @@ import java.util.Scanner;
  */
 public class Basic {
 
+    public static int test = 2;
     //4.类常量，用于在类中的多个方法中都使用
 //    public static final int b = 2;
 

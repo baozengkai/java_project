@@ -8,5 +8,7 @@ import java.util.Arrays;
 */
 
 public interface InterfaceDemo{
+    int test = 1;
     void sayHello();
 }
+

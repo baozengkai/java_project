@@ -37,6 +37,8 @@ class DeepDemo implements Cloneable{
 public class CloneDemo implements Cloneable{
 
     private int number;
+    //default 类型
+    int test;
     private DeepDemo dd;
     public void setNumber(int number)
     {
