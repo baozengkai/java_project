@@ -18,11 +18,11 @@
     </repositories>
 
     <dependencies>
-        <dependency>
-            <groupId>com.eisoo</groupId>
-            <artifactId>rainbow-core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.eisoo</groupId>-->
+            <!--<artifactId>rainbow-core</artifactId>-->
+            <!--<version>${project.version}</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
