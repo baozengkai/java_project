@@ -1,10 +1,9 @@
 package com.baozengkai;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Set;
+import java.util.*;
+
 /*
 集合
-    LinkedList:
+    1.LinkedList:
         链表实现
             分配空间不必是连续的
             插入和删除的操作很快，只需要修改指针就可以，时间复杂度是O(1)
@@ -29,35 +28,45 @@ import java.util.Set;
             4.for-each方式
             5.迭代器方式
 
+    2. 细节
  */
 public class Collection {
    public static void main(String[] args){
-       LinkedList<String> lk = new LinkedList<String>();
-       lk.add("first");
-       lk.add("second");
-       lk.add("third");
-       lk.add("fourth");
+       //1. LinkedList
+//       LinkedList<String> lk = new LinkedList<String>();
+//       lk.add("first");
+//       lk.add("second");
+//       lk.add("third");
+//       lk.add("fourth");
+//
+//       System.out.println(lk.get(2));
+//       System.out.println(lk.getLast());
+//
+//       lk.remove();
+//       lk.remove("third");
+//       System.out.println(lk.size());
+//
+//       //遍历的两种方式
+//       //for each方式
+//       for(Object o :lk)
+//       {
+//           System.out.println(o);
+//       }
+//       //迭代器方式
+//       Iterator<String> it = lk.iterator();
+//       while(it.hasNext())
+//       {
+//           Object oo = it.next();
+//           System.out.println(oo);
+//       }
+//       System.out.println(lk.size());
 
-       System.out.println(lk.get(2));
-       System.out.println(lk.getLast());
+       // 2. 细节
+       // 2.1 创建集合引用方式(用这种方式，实现了向上转型，可以方便的将l在之后修改成指向LinkList之类的)
+       // 注意: 需要注意的是，如果需要用到ArrList中独有的方法，这种就不奏效了。
+       List<String> l = new ArrayList<String>();
 
-       lk.remove();
-       lk.remove("third");
-       System.out.println(lk.size());
-
-       //遍历的两种方式
-       //for each方式
-       for(Object o :lk)
-       {
-           System.out.println(o);
-       }
-       //迭代器方式
-       Iterator<String> it = lk.iterator();
-       while(it.hasNext())
-       {
-           Object oo = it.next();
-           System.out.println(oo);
-       }
-       System.out.println(lk.size());
+       // 2.2 所有继承自Collection的对象都可以正常工作
+       java.util.Collection<String> c = new ArrayList<String>();
    }
 }

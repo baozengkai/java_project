@@ -18,7 +18,8 @@ import java.util.List;
     4. 类型变量的约束
     5. 需要注意的点
            5.1 静态实例、静态方法与泛型
-    6. 泛型通配符
+    6. 向上转型用于泛型中
+    7. 细节
 
  */
 //3.1泛型类
@@ -151,21 +152,33 @@ import java.util.List;
 //}
 
 //5.1 静态方法与泛型
-public class Generic<T>
-{
-    //5.1.1 静态实例和静态方法尝试使用类上的泛型变量
-//    public static T value;
-//    public static T static_method(T value)
+//public class Generic<T>
+//{
+//    //5.1.1 静态实例和静态方法尝试使用类上的泛型变量
+////    public static T value;
+////    public static T static_method(T value)
+////    {
+////        return value;
+////    }
+//
+//    //5.1.2 如果静态方法要使用泛型变量，需要将自身变成静态泛型方法 而静态实例禁止使用
+////    public static T value;
+//    public static<T> T static_method(T value)
 //    {
 //        return value;
 //    }
+//}
 
-    //5.1.2 如果静态方法要使用泛型变量，需要将自身变成静态泛型方法 而静态实例禁止使用
-//    public static T value;
-    public static<T> T static_method(T value)
-    {
-        return value;
-    }
-}
+//6. 向上转型用于泛型中
+//class Food{ }
+//class Chicken extends Food{}
+//class Dark extends Food{}
+//
+//public class Generic{
+//    public static void main(String[] args){
+//        ArrayList<Food> f = new ArrayList<Food>();
+//        f.add(new Chicken());
+//        f.add(new Dark());
+//    }
+//}
 
-//6. 泛型通配符
