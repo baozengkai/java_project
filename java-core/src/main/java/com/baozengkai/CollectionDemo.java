@@ -1,4 +1,7 @@
 package com.baozengkai;
+import sun.plugin.viewer.context.IExplorerAppletContext;
+
+import java.lang.reflect.Array;
 import java.util.*;
 
 /*
@@ -27,10 +30,10 @@ import java.util.*;
         遍历方式
             4.for-each方式
             5.迭代器方式
-
     2. 细节
+    3.Collection类添加一组元素(配合java.utils.Arrays使用)
  */
-public class Collection {
+public class CollectionDemo {
    public static void main(String[] args){
        //1. LinkedList
 //       LinkedList<String> lk = new LinkedList<String>();
@@ -52,7 +55,7 @@ public class Collection {
 //       {
 //           System.out.println(o);
 //       }
-//       //迭代器方式
+//       //迭代器遍历
 //       Iterator<String> it = lk.iterator();
 //       while(it.hasNext())
 //       {
@@ -61,12 +64,54 @@ public class Collection {
 //       }
 //       System.out.println(lk.size());
 
+       //迭代器删除
+       List<String> list = new ArrayList<String>();
+
+       Iterator<String> it = list.iterator();
+
+       for(int i=0;i<5;i++)
+       {
+           list.add("String"+i);
+       }
+
+       while(it.hasNext())
+       {
+            String s = it.next();
+            System.out.println(s);
+            it.remove();
+       }
+
+       System.out.println(list.size());
+
        // 2. 细节
        // 2.1 创建集合引用方式(用这种方式，实现了向上转型，可以方便的将l在之后修改成指向LinkList之类的)
        // 注意: 需要注意的是，如果需要用到ArrList中独有的方法，这种就不奏效了。
-       List<String> l = new ArrayList<String>();
+//       List<String> l = new ArrayList<String>();
+//
+//       // 2.2 所有继承自Collection的对象都可以正常工作
+//       java.util.Collection<String> c = new ArrayList<String>();
 
-       // 2.2 所有继承自Collection的对象都可以正常工作
-       java.util.Collection<String> c = new ArrayList<String>();
+       // 3.关于Collection添加一组元素
+       // 3.1 添加一组元素(配合Arrays使用)
+
+//       Collection<Integer> collection= new ArrayList<Integer>();
+//
+//       Integer[] elements = {1,2,3};
+//
+//       //3.1 colleciton.addAll()只能接受一个Collection对象作为参数，Arrays.asList接受一个数组或者列表，将其转换为List对象
+//       collection.addAll(Arrays.asList(elements));
+//
+//       //3.2 Collecitons.addAll()接受一个Collection对象以及一个数组或者一个用逗号分隔的列表。
+//       Collections.addAll(collection,elements);
+//
+//       System.out.println(collection);
+//
+//       //3.3 Arrays.asList()转换的List对象不能改变大小，底层还是数组
+//       List<Integer> list = Arrays.asList(1,2,3);
+//       list.set(1,-1);
+////       list.add(4); //发生错误，因为底层还是数组，不能改变动态大小
+//       System.out.println(list);
+
+        Collection  collection = new ArrayList();
    }
 }
