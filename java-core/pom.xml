@@ -16,13 +16,7 @@
             <url>http://jcenter.bintray.com</url>
         </repository>
     </repositories>
-
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>com.eisoo</groupId>-->
-            <!--<artifactId>rainbow-core</artifactId>-->
-            <!--<version>${project.version}</version>-->
-        <!--</dependency>-->
         <dependency>
             <groupId>com.mashape.unirest</groupId>
             <artifactId>unirest-java</artifactId>
@@ -33,21 +27,31 @@
             <artifactId>jmustache</artifactId>
             <version>1.14</version>
         </dependency>
-
-        <!-- TESTING -->
-        <!-- https://www.petrikainulainen.net/programming/testing/writing-unit-tests-with-spock-framework-creating-a-maven-project/ -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.22</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.7.22</version>
+        </dependency>
+        <!-- Spock -->
         <dependency>
             <groupId>org.spockframework</groupId>
             <artifactId>spock-core</artifactId>
             <version>1.1-groovy-2.4</version>
             <scope>test</scope>
         </dependency>
+        <!--Junit-->
         <dependency> <!-- use a specific JUnit version rather than the one specified by spock-core -->
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
+        <!--Groovy-->
         <dependency> <!-- use a specific Groovy version rather than the one specified by spock-core -->
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
@@ -69,24 +73,91 @@
         </dependency>
     </dependencies>
     <build>
+        <pluginManagement>
+            <plugins>
+                <!--定义测试报告工具surefire report-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-report-plugin</artifactId>
+                    <version>2.21.0</version>
+                </plugin>
+                <!--定义代码检查工具checkstyle-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-checkstyle-plugin</artifactId>
+                    <version>3.0.0</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+
         <plugins>
-            <!-- Mandatory plugins for using Spock -->
+            <!--使用测试工具surefire-->
             <plugin>
-                <!-- The gmavenplus plugin is used to compile Groovy code. To learn more about this plugin,
-                visit https://github.com/groovy/GMavenPlus/wiki -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <reportFormat>xml</reportFormat>
+                    <!--<reportsDirectory>${project.build.directory}/../../../report/ut_rainbow_results/</reportsDirectory>-->
+                </configuration>
+            </plugin>
+
+            <!--使用测试报告工具surefire report-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
+                <!--<version>2.21.0</version>-->
+            <!--</plugin>-->
+
+            <!--使用代码风格工具checkstyle(单Maven项目)-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.0.0</version>
+                <configuration>
+                    <configLocation>google_checks.xml</configLocation>
+                    <encoding>UTF-8</encoding>
+                    <consoleOutput>true</consoleOutput>
+                    <failsOnError>true</failsOnError>
+                    <linkXRef>false</linkXRef>
+                </configuration>
+                <!--绑定到validate生命周期 会将检查结果输出到console上-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>checkstyle</id>-->
+                        <!--<phase>validate</phase>-->
+                        <!--<goals>-->
+                            <!--<goal>check</goal>-->
+                        <!--</goals>-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            </plugin>
+
+            <!--Groovy and Java compile-->
+            <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
                 <artifactId>gmavenplus-plugin</artifactId>
-                <version>1.6</version>
+                <version>1.5</version>
                 <executions>
                     <execution>
                         <goals>
-                            <!-- Invokes the addTestSources goal that adds Groovy tests source to the project's test sources -->
+                            <goal>addSources</goal>
                             <goal>addTestSources</goal>
-                            <!-- Invokes the testCompile goal that compiles our Spock tests -->
-                            <goal>compileTests</goal>
+                            <goal>compile</goal>
+                            <goal>testCompile</goal>
                         </goals>
                     </execution>
                 </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
             </plugin>
         </plugins>
     </build>
