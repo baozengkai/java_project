@@ -71,6 +71,18 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--高级日志特性jcabi-aspects-->
+        <dependency>
+            <groupId>com.jcabi</groupId>
+            <artifactId>jcabi-aspects</artifactId>
+            <version>0.22.6</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.8.13</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
     <build>
         <pluginManagement>
@@ -158,6 +170,24 @@
                     <source>1.8</source>
                     <target>1.8</target>
                 </configuration>
+            </plugin>
+
+            <!--高级日志插件Jcabi-->
+            <plugin>
+                <groupId>com.jcabi</groupId>
+                <artifactId>jcabi-maven-plugin</artifactId>
+                <version>0.14.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>ajc</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
