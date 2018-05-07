@@ -120,7 +120,6 @@
                 <!--<artifactId>maven-surefire-report-plugin</artifactId>-->
                 <!--<version>2.21.0</version>-->
             <!--</plugin>-->
-
             <!--使用代码风格工具checkstyle(单Maven项目)-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -144,7 +143,6 @@
                     <!--</execution>-->
                 <!--</executions>-->
             </plugin>
-
             <!--Groovy and Java compile-->
             <plugin>
                 <groupId>org.codehaus.gmavenplus</groupId>
@@ -161,7 +159,6 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -171,7 +168,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
             <!--高级日志插件Jcabi-->
             <plugin>
                 <groupId>com.jcabi</groupId>

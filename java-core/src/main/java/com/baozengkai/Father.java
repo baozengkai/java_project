@@ -47,11 +47,11 @@ public class Father {
         return 0;
     }
 
-//    public static void print()
-//    {
-//        //a;// 不可使用非static成员变量
-//        b = 3;
-//    }
+    public static void print()
+    {
+        //a;// 不可使用非static成员变量
+        b = 3;
+    }
 
 //    public int setA(int a_)
 //    {
@@ -68,14 +68,14 @@ class Son extends Father{
         d = 5;
     }
 
-    //super练习
+//    super练习
 //    public int getA(){
 //        //return d*a;  //错误，因为a是父类中的私有成员，子类不可以访问，只有变成protected或者使用父类中的公有方法获取a值
 //        //return d*getA(); //错误，这样又是无限调用自己
 //        return d*super.getA(); //成功，使用super明确调用的是父类中的getA()方法
 //    }
 
-    //重写(覆盖)父类中的getA方法
+//    重写(覆盖)父类中的getA方法
 //    public int getA()
 //    {
 //        System.out.println("I am Employee.getA()");
@@ -94,3 +94,25 @@ class Daughter extends Father{
     {
     }
 }
+
+//class Parent{
+//    public void show(){
+//        System.out.println("I am father");
+//    }
+//}
+//
+//class Son extends Parent {
+//    @Override
+//    public void show() {
+//        System.out.println("I am Son");
+//    }
+//}
+//
+//public class Father {
+//    public static void main(String[] args) {
+//        Parent p = new Son();
+//        p.show();
+//    }
+//}
+//
+
