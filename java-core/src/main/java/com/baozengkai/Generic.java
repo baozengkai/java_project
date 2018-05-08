@@ -5,24 +5,83 @@ import sun.rmi.runtime.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
-泛型
-    1. 不使用泛型的list
-    2. 使用泛型的list
-    3. 泛型的使用
-        3.1 泛型类
-        3.2 泛型接口
-        3.3 泛型方法
-            3.3.1 定义在普通类中的泛型方法
-            3.3.2 定义在泛型类中的泛型方法
-    4. 类型变量的约束
-    5. 需要注意的点
-           5.1 静态实例、静态方法与泛型
-    6. 向上转型用于泛型中
-    7. 细节
-
+/** 泛型
+ *      1. 泛型出现之前的容器和泛型出现之后的容器
+ *      2. 不使用泛型的list和使用泛型的list
+ *      3. 泛型的使用
+ *          3.1 泛型类
+ *          3.2 泛型接口
+ *          3.3 泛型方法
+ *              3.3.1 定义在普通类中的泛型方法
+ *              3.3.2 定义在泛型类中的泛型方法
+ *      4. 类型变量的约束
+ *      5. 需要注意的点
+ *          5.1 静态实例、静态方法与泛型
+ *      6. 向上转型用于泛型中
+ *      7. 细节
+ *          7.1 元组类库
+ *          7.2 泛型接口之生成器(Generator)
+ *          7.3 泛型方法与可变参数
+ *      8.问题
+ *          8.1 任何基本类型不能作为类型参数
+ * @author baokai
  */
-//3.1泛型类
+
+// 1.1泛型出现之前的容器
+//class Automobile {}
+//
+//public class Generic {
+//    private Object a;
+//    public Generic(Object a) {
+//        this.a = a;
+//    }
+//    public void set(Object a) {
+//        this.a = a;
+//    }
+//    public Object get() {
+//        return a;
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        // 存放Automobile类对象
+//        Generic g = new Generic(new Automobile());
+//        Automobile auto = (Automobile)g.get();
+//
+//        // 存放String类对象
+//        g.set("I am String");
+//        String s = (String)g.get();
+//
+//        // 存放Integer类对象
+//        g.set(1);
+//        Integer x = (Integer)g.get();
+//    }
+//}
+
+// 1.2泛型出现之后的容器
+//class Automobile {}
+//
+//public class Generic<T> {
+//    private T a;
+//    public Generic(T a) {
+//        this.a = a;
+//    }
+//    public void set(T a) {
+//        this.a = a;
+//    }
+//    public T get() {
+//        return a;
+//    }
+//
+//    public static void main(String[] args) {
+//
+//        // 存放Automobile类对象
+//        Generic<Automobile> g = new Generic<Automobile>(new Automobile());
+//        Automobile auto = g.get();
+//    }
+//}
+
+// 3.1泛型类
 //public class Generic <T>{
 //    //3.1 泛型类
 //    public T value;
@@ -134,7 +193,7 @@ import java.util.List;
 //    }
 //}
 
-//4.类型变量的约束
+// 4.类型变量的约束
 //public class Generic
 //{
 //    public static<T extends Comparable> T min(T[] a)
@@ -151,7 +210,7 @@ import java.util.List;
 //    }
 //}
 
-//5.1 静态方法与泛型
+// 5.1静态方法与泛型
 //public class Generic<T>
 //{
 //    //5.1.1 静态实例和静态方法尝试使用类上的泛型变量
@@ -169,7 +228,7 @@ import java.util.List;
 //    }
 //}
 
-//6. 向上转型用于泛型中
+// 6.向上转型用于泛型中
 //class Food{ }
 //class Chicken extends Food{}
 //class Dark extends Food{}
@@ -182,3 +241,104 @@ import java.util.List;
 //    }
 //}
 
+// 7.细节
+// 7.1元组类库(数据传送对象、信使)
+//class twoTuple<A,B> {
+//
+//    // public保证可以被外界访问到该对象 final保证不会被改变
+//    public final A a;
+//    public final B b;
+//    public twoTuple(A a, B b) {
+//        this.a = a;
+//        this.b = b;
+//    }
+//    @Override
+//    public String toString() {
+//        return "" + a + ", " + b + "";
+//    }
+//}
+//
+//class threeTuple<A, B, C> extends twoTuple<A,B> {
+//    public final C c;
+//    public threeTuple(A a, B b, C c) {
+//        super(a,b);
+//        this.c = c;
+//    }
+//    @Override
+//    public String toString() {
+//        return "" + a + ", " + b + ", "  + c + "";
+//    }
+//}
+//
+//class Generic {
+//    static twoTuple<String, Integer> f() {
+//        return new twoTuple<String, Integer>("xiaobao", 25);
+//    }
+//
+//    static threeTuple<String, Integer, String> g() {
+//        return new threeTuple<String, Integer, String>("xiaoya", 25, "Programmer");
+//    }
+//
+//    public static void main(String[] args) {
+//        System.out.println(f());
+//        System.out.println(g());
+//    }
+//}
+
+// 7.2泛型接口之生成器(generator)
+//class Coffee{
+//    private static long counter = 0;
+//    private final long id =counter++;
+//    @Override
+//    public String toString() {
+//        return getClass().getSimpleName()+ "" + id;
+//    }
+//}
+//
+//class Water extends Coffee {}
+//
+//public class Generic implements Generator<Coffee> {
+//
+//    private Class[] types = {Water.class};
+//
+//    // 空的构造函数
+//    public Generic(){
+//    }
+//    Class c = Water.class;
+//
+//    private int size = 0;
+//    @Override
+//    public Coffee next () {
+//        try {
+//            return (Coffee)types[0].newInstance();
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        Generic gen = new Generic();
+//        gen.next();
+//    }
+//}
+
+// 7.3泛型方法与可变参数
+//public class Generic {
+//
+//    // 泛型方法和可变参数args
+//    static <T>  List<T> printMsg(T... args){
+//        List<T> tmp = new ArrayList<>();
+//        for(T item : args) {
+//            tmp.add(item);
+//        }
+//        return tmp;
+//    }
+//
+//    public static void main(String[] args) {
+//        List<String> result = printMsg("a","b","c");
+//        System.out.println(result);
+//    }
+//}
+
+// 8.注意
+// 8.1 任何基本类型都不能作为类型参数
