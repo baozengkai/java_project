@@ -10,6 +10,8 @@ import java.util.regex.Pattern;
  *  一: File类
  *      1.1 查看指定目录下文件
  *      1.2 过滤查看指定目录下文件
+ *      1.3 常用操作
+ *
  */
 
 // 一:File类
@@ -50,13 +52,35 @@ import java.util.regex.Pattern;
 //}
 
 
-// 1.3
-public class IODemo {
-    public static void main(String[] args) {
-        File path = new File(".");
-
-    }
-}
+// 1.3 常用操作
+//public class IODemo {
+//
+//    private static void fileData(File f) {
+//        System.out.println(
+//            " Absolutely Path:" + f.getAbsolutePath() +
+//            "\n Path:" + f.getPath() +
+//            "\n Parent:" + f.getPath() +
+//            "\n Name:" + f.getName() +
+//            "\n Can Read:" + f.canRead() +
+//            "\n Can Write: "+ f.canWrite() +
+//            "\n Length: "+ f.length() +
+//            "\n Last Modified: " + f.lastModified()
+//        );
+//        if(f.isFile()){
+//            System.out.println("It is a file");
+//        } else if (f.isDirectory()) {
+//            System.out.println("It is a directory");
+//        }
+//    }
+//
+//    public static void main(String[] args) {
+//        File path1 = new File("C:/baozengkai/code/code-style/eisoo-checkstyle.xml");
+//        fileData(path1);
+//
+//        File path2 = new File("C:/baozengkai/");
+//        fileData(path2);
+//    }
+//}
 
 
 
