@@ -16,7 +16,7 @@ import java.io.FileNotFoundException;
  *      2.1 InputStream和OutputStream
  *      2.2 Reader和Writer
  *  三:I/O流常见用法
- *      3.1 缓冲输入文件
+ *      3.1 (文件)缓冲输入流 + (标准输入)缓冲输入流
  *
  */
 
@@ -89,32 +89,31 @@ import java.io.FileNotFoundException;
 
 // 三:I/O流的常见用法
 // 3.1 (文件)输入缓冲流+(标准)输入缓冲流
-
-public class IODemo {
-    public static void main(String[] args) {
-        try {
-
-            // 3.1.1 (文件)输入缓冲流
-            // 创建缓冲区输入流，与其他流建立关联。
-            // 当执行到此的时候，输入流的部分数据会先放入缓冲区
-//            BufferedReader bf = new BufferedReader(new FileReader("d:\\tmp\\test.txt"));
-
-            //3.1.2 （标准输入）输入缓冲流
-            BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-
-            String line = null;
-
-            // BufferReader的readline()方法能读取一行数据到内存 会先从缓冲区去读取
-            while((line = bf.readLine())!=null) {
-                System.out.println(line);
-            }
-
-        } catch (FileNotFoundException f) {
-        } catch (IOException e) {
-
-        }
-    }
-}
+//public class IODemo {
+//    public static void main(String[] args) {
+//        try {
+//
+//            // 3.1.1 (文件)输入缓冲流
+//            // 创建缓冲区输入流，与其他流建立关联。
+//            // 当执行到此的时候，输入流的部分数据会先放入缓冲区
+////            BufferedReader bf = new BufferedReader(new FileReader("d:\\tmp\\test.txt"));
+//
+//            //3.1.2 （标准输入）输入缓冲流
+//            BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+//
+//            String line = null;
+//
+//            // BufferReader的readline()方法能读取一行数据到内存 会先从缓冲区去读取
+//            while((line = bf.readLine())!=null) {
+//                System.out.println(line);
+//            }
+//
+//        } catch (FileNotFoundException f) {
+//        } catch (IOException e) {
+//
+//        }
+//    }
+//}
 
 
 
