@@ -36,7 +36,6 @@ public class LinkedStack {
 
     // 入栈
     public void push(int s) {
-        // 先判断栈是否为空
             Node tmp = head;
             head = new Node();
             head.data = s;
@@ -45,6 +44,7 @@ public class LinkedStack {
 
     // 出栈
     public int pop() {
+        // 先判断栈是否为空
         if(isEmpty()) {
             return -1;
         }else {
