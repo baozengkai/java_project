@@ -45,14 +45,26 @@ public class ResizeArrayStack {
       if(isEmpth()){
           System.exit(1);
       }
-      
+      this.count--;
+      String s = this.stack[count];
+      this.stack[count] = null;
+      if(this.count == this.stack.length/4){
+            resizeArray(this.stack.length/2);
+      }
+      return s;
     }
+
+
+
 
     public static void main(String[] args){
         ResizeArrayStack ra = new ResizeArrayStack();
         ra.push("a");
         ra.push("b");
-        ra.push("b");
+        ra.push("c");
+        System.out.println(ra.stack.length);
+        System.out.println(ra.pop());
+        System.out.println(ra.pop());
         System.out.println(ra.stack.length);
     }
 }
