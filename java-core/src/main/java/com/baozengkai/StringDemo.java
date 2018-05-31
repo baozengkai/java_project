@@ -3,6 +3,7 @@ package com.baozengkai;
 /**
  *  字符串
  *      1.重载+与StringBuilder类
+ *      2.关于==比较字符串
  *  未学知识
  *      正则表达式
  *      Scanner扫描输入
@@ -28,5 +29,14 @@ public class StringDemo {
             strBuild.append(i);
         }
         System.out.println(strBuild.toString());
+
+        // 2.关于==比较字符串
+        String s1 = "java";
+        String s2 = "java";
+        String s3 = new String("java");
+        String s4 = new String("java");
+        System.out.println(s1==s2);
+        System.out.println(s3==s4);
+        System.out.println(s1==s3);
     }
 }

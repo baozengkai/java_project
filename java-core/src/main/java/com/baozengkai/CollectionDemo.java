@@ -2,8 +2,8 @@ package com.baozengkai;
 import java.lang.reflect.Array;
 import java.util.*;
 
-/*
-集合
+/**
+ *  集合
     1.LinkedList:
         链表实现
             分配空间不必是连续的
@@ -30,6 +30,7 @@ import java.util.*;
             5.迭代器方式
     2. 细节
     3.Collection类添加一组元素(配合java.utils.Arrays使用)
+    4.IdentityHashMap使用
  */
 public class CollectionDemo {
    public static void main(String[] args){
@@ -110,6 +111,12 @@ public class CollectionDemo {
 ////       list.add(4); //发生错误，因为底层还是数组，不能改变动态大小
 //       System.out.println(list);
 
-        Collection  collection = new ArrayList();
+       // 4.IdentityHashMap使用
+       // IdentityHashMap是比较的key1 == key2是否相同
+       IdentityHashMap ident = new IdentityHashMap();
+       ident.put("java", 80);
+       ident.put(new String("java"), 85);
+
+       System.out.println(ident);
    }
 }
