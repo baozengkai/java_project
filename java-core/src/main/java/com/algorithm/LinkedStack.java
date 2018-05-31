@@ -15,13 +15,13 @@ package com.algorithm;
  *      该代码是没有头结点的情况
  */
 
-class Node{
-    int data;
+class Node<T>{
+    T data;
     Node next;
 }
 
-public class LinkedStack {
-    Node head = null;
+public class LinkedStack<T> {
+    Node<T> head = null;
 
     // 初始化函数(构造函数完成)
     LinkedStack(){
@@ -35,33 +35,40 @@ public class LinkedStack {
     }
 
     // 入栈
-    public void push(int s) {
-            Node tmp = head;
-            head = new Node();
+    public void push(T s) {
+            Node<T> tmp = head;
+            head = new Node<T>();
             head.data = s;
             head.next = tmp;
     }
 
     // 出栈
-    public int pop() {
+    public T pop() {
         // 先判断栈是否为空
         if(isEmpty()) {
-            return -1;
+            return null;
         }else {
-            int res = head.data;
+            T res = head.data;
             head = head.next;
             return res;
         }
     }
 
     public static void main(String[] args){
-        LinkedStack ls = new LinkedStack();
-        for(int i=0;i<3;i++) {
-            ls.push(i);
-        }
-        System.out.println(ls.pop());
-        System.out.println(ls.pop());
-        System.out.println(ls.pop());
+//        LinkedStack ls = new LinkedStack();
+//        for(int i=0;i<3;i++) {
+//            ls.push(i);
+//        }
+//        System.out.println(ls.pop());
+//        System.out.println(ls.pop());
+//        System.out.println(ls.pop());
+//        System.out.println(ls.pop());
+
+        LinkedStack<String> ls = new LinkedStack<String>();
+        ls.push("xiaobao");
+        ls.push("love");
+        //ls.push(1); 编译器会报错
+
         System.out.println(ls.pop());
     }
 }

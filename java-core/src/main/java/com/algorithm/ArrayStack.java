@@ -14,15 +14,15 @@ package com.algorithm;
  *      3.在出栈的时候，对于非基本类型的存储，存储的是对象指针 你需要显示的将此设置为NULL， Java才会启动垃圾回收期收集。
  */
 
-public class ArrayStack {
+public class ArrayStack<T> {
 
-    private int[] stacks;
+    private T[] stacks;
     private int N;
     private int count = 0;
 
     ArrayStack(int size){
         this.N = size;
-        this.stacks = new int[this.N];
+        this.stacks = (T[])new Object[this.N];
     }
 
     // 判断栈是否是空栈
@@ -36,7 +36,7 @@ public class ArrayStack {
     }
 
     // 入栈
-    public void push(int value){
+    public void push(T value){
         //首先判断是否是满栈 满了的话就不能加了
         if(isFull()){
             System.exit(1);
@@ -47,13 +47,13 @@ public class ArrayStack {
     }
 
     // 出栈
-    public int pop(){
+    public T pop(){
         //首先判断是否是空栈  是空栈的话就不能出了
         if(isEmpty()) {
-            return -1;
+            return null;
         } else {
             this.count--;
-            int tmp = stacks[this.count];
+            T tmp = stacks[this.count];
 //            stacks[this.count] = null; // 对于非基本类型的存储，存储的是对象指针 你需要显示的将此设置为NULL， Java才会启动垃圾回收期收集。
             return tmp;
         }
@@ -65,7 +65,7 @@ public class ArrayStack {
     }
 
     public static void main(String[] args){
-        ArrayStack as = new ArrayStack(5);
+        ArrayStack<Integer> as = new ArrayStack<Integer>(5);
         for(int i=0;i<5;i++){
             as.push(i);
         }
