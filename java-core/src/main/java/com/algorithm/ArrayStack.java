@@ -1,5 +1,7 @@
 package com.algorithm;
 
+import java.util.Iterator;
+
 /**
  * 数组栈
  *      构造函数初始化数组
@@ -20,9 +22,9 @@ public class ArrayStack<T> {
     private int N;
     private int count = 0;
 
-    ArrayStack(int size){
+    ArrayStack(int size) {
         this.N = size;
-        this.stacks = (T[])new Object[this.N];
+        this.stacks = (T[]) new Object[this.N];
     }
 
     // 判断栈是否是空栈
