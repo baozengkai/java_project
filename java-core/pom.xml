@@ -83,6 +83,15 @@
             <version>1.8.13</version>
             <scope>runtime</scope>
         </dependency>
+
+        <!--添加json库-->
+        <!-- https://mvnrepository.com/artifact/org.sharegov/mjson -->
+        <dependency>
+            <groupId>org.sharegov</groupId>
+            <artifactId>mjson</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
     </dependencies>
     <build>
         <pluginManagement>

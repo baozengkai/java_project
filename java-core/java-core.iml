@@ -35,5 +35,6 @@
     <orderEntry type="library" name="Maven: com.jcabi:jcabi-log:0.17" level="project" />
     <orderEntry type="library" name="Maven: javax.validation:validation-api:1.1.0.Final" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.aspectj:aspectjrt:1.8.13" level="project" />
+    <orderEntry type="library" name="Maven: org.sharegov:mjson:1.4.0" level="project" />
   </component>
 </module>
